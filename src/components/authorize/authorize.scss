@@ -1,0 +1,250 @@
+* {
+  box-sizing: border-box;
+}
+.back {
+  left: 0;
+  background: #027b9a;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.login-container {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+.wrapper {
+  width: 250px;
+  height: 350px;
+  margin: 60px auto;
+  perspective: 600px;
+  text-align: left;
+}
+
+.rec-prism {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 0.5s ease-in;
+}
+
+.face {
+  position: absolute;
+  width: 250px;
+  height: 350px;
+  padding: 20px;
+  background: rgba(250, 250, 250, 0.96);
+  border: 3px solid #027b9a;
+  border-radius: 3px;
+}
+
+.content {
+  color: #666;
+
+  h2 {
+    font-size: 1.2em;
+    color: #027b9a;
+  }
+}
+
+.field-wrapper {
+  margin-top: 30px;
+  position: relative;
+
+  label {
+    position: absolute;
+    pointer-events: none;
+    font-size: 0.85em;
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: all ease-in 0.25s;
+    color: lighten(#666, 20%);
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"],
+  textarea {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  textarea:focus {
+    outline: none;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    line-height: 2em;
+    border-bottom: 1px solid #027b9a;
+    color: #666;
+  }
+
+  input[type="text"]::placeholder,
+  input[type="password"]::placeholder,
+  textarea::placeholder {
+    opacity: 0;
+  }
+
+  input[type="text"]:focus + label,
+  input[type="text"]:not(:placeholder-shown) + label,
+  input[type="password"]:focus + label,
+  input[type="password"]:not(:placeholder-shown) + label,
+  textarea:focus + label,
+  textarea:not(:placeholder-shown) + label {
+    top: -35%;
+    color: #42509e;
+  }
+
+  input[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    background: #027b9a;
+    line-height: 2em;
+    color: #fff;
+    border: 1px solid #027b9a;
+    border-radius: 3px;
+    padding: 5px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+
+  textarea {
+    resize: none;
+    line-height: 1em;
+  }
+
+  textarea:focus + label,
+  textarea:not(:placeholder-shown) + label {
+    top: -25%;
+  }
+}
+
+.thank-you-msg {
+  position: absolute;
+  width: 200px;
+  height: 130px;
+  text-align: center;
+  font-size: 2em;
+  color: #027b9a;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &:after {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 25px;
+    border: 10px solid #027b9a;
+    border-right: 0;
+    border-top: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0);
+    animation: success ease-in 0.15s forwards;
+    animation-delay: 2.5s;
+  }
+}
+
+.face-front {
+  transform: rotateY(0deg) translateZ(125px);
+}
+
+.face-back {
+  transform: rotateY(180deg) translateZ(125px);
+}
+
+.face-right {
+  transform: rotateY(90deg) translateZ(125px);
+}
+
+.face-bottom {
+  height: 250px;
+  transform: rotateX(-90deg) translateZ(225px);
+}
+
+.nav {
+  margin: 20px 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    list-style-type: none;
+    font-size: 1em;
+    margin: 0 10px;
+    color: #42509e;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      border-bottom: 1px solid #42509e;
+      transition: all ease-in 0.25s;
+    }
+
+    &:hover:after,
+    &.active:after {
+      width: 100%;
+    }
+  }
+}
+
+.psw,
+.signup,
+.signinn {
+  display: block;
+  margin: 20px 0;
+  font-size: 0.75em;
+  text-align: center;
+  color: #42509e;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+small {
+  font-size: 0.7em;
+}
+
+@-webkit-keyframes success {
+  from {
+    transform: translate(-50%, -50%) rotate(0) scale(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+}
+
+@keyframes success {
+  from {
+    transform: translate(-50%, -50%) rotate(0) scale(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+}
